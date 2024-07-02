@@ -1,0 +1,2 @@
+qr code generator api using img.src it is basically a url fetch not used
+	//   https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=hello world

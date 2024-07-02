@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notes App</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+       .main{
+            width:100vw;
+            height:100vh;
+            background-image:linear-gradient(#A1C4FD , #C2E9FB);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+       }
+       .card{
+        width:30vw;
+        min-height:15vw;
+        background-color:#fff;
+        font-family:helvetica;
+       }
+       .btn{
+            width:350px;
+            height:35px;
+            margin:20px 0px 20px 30px;
+            background-color:#3944bc;
+            color:white;
+            font-size:20px;
+            cursor:pointer;
+       }
+       .btn:hover{
+            background-color:#1520a6;
+       }
+       .qrImage{
+            margin:10px 0px 20px 40px;
+       }
+       .edited{
+        margin:10px 80px 0px 90px
+       }
+       .message{
+        color:red;
+        margin:0px 0px 10px 50px;
+       }
+       
+    </style>
+
+</head>
+<body>
+    <div class="main">
+        <div class="card">
+            <h2 style="margin:10px 80px 10px 80px;">Enter Your Text or Url<hr></h2>
+            <div class="entered">
+                <input type="text" placeholder="text or url" class="inputs" style="width:350px;height:30px;margin:20px 10px 20px 30px;">
+            </div>
+            <div class="myqrImage edited">
+                <img class="qrImage">
+            </div>
+            
+            <button class="btn">Genetrate QR</button>
+            <div class="message"><div>
+            
+        </div>
+    </div>
+
+
+<script>
+    const user=document.querySelector('.inputs')
+    const generateBtn=document.querySelector('.btn')
+    const qrbox=document.querySelector('.myqrImage')
+    const myqr=document.querySelector('.qrImage')
+    const mymessage=document.querySelector('.message')
+
+
+
+    function myfunc(){
+        if (user.value.length>0){
+            console.log(user.value)
+            myqr.src=`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${user.value}`
+            user.value=""
+        }
+        else{
+            mymessage.innerHTML="please enter some value!!"
+            setTimeout(function(){
+                mymessage.innerHTML=""
+            },1000)
+        }
+
+    }
+
+    generateBtn.addEventListener('click',myfunc)
+
+</script>
+</body>
+</html>
